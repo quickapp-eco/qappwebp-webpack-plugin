@@ -1,0 +1,71 @@
+{
+  "name": "@quickapp-eco/qappwebp-webpack-plugin",
+  "version": "0.1.0",
+  "description": "适用快应用打包编译时，图片格式转换webp的webpack 插件",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "eslint src --ext .js --cache --fix",
+    "compile": "rm -rf dist && babel src -d dist",
+    "prepublishOnly": "npm run lint && npm run compile"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quickapp-eco/qappwebp-webpack-plugin.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "keywords": [
+    "快应用",
+    "webp",
+    "webpack",
+    "plugin"
+  ],
+  "files": [
+    "dist"
+  ],
+  "author": "szmalq@163.com",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "minify"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-modules-commonjs",
+      "@babel/plugin-transform-async-to-generator",
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "peerDependencies": {
+    "webpack": "^4.0.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.8.3",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.7"
+  },
+  "dependencies": {
+    "file-type": "^14.1.1",
+    "sharp": "^0.23.1"
+  },
+  "bugs": {
+    "url": "https://github.com/quickapp-eco/qappwebp-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/quickapp-eco/qappwebp-webpack-plugin#readme"
+}
